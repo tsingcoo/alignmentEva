@@ -7,7 +7,6 @@ import java.text.DecimalFormat;
 
 /**
  * Implementation of alignment error rate.
- *
  */
 public class AER extends AbstractAlignmentMetric {
 
@@ -42,7 +41,7 @@ public class AER extends AbstractAlignmentMetric {
         this.tpPossible += truepositivePossible;
         this.tpSure += truepositiveSure;
         this.referenceSureCount += sureCount;
-        
+
         this.resultCount += result.GetLinkCount();
     }
 
@@ -54,11 +53,11 @@ public class AER extends AbstractAlignmentMetric {
     }
 
     public String printScores() {
-        
+
         DecimalFormat df = new DecimalFormat("0.000");
         df.setRoundingMode(RoundingMode.HALF_UP);
-      
-        
+
+
         String output = "precision: " + df.format(precision) + "\n";
         output += "recall: " + df.format(recall) + "\n";
         output += "aer: " + df.format(aer);
@@ -68,7 +67,7 @@ public class AER extends AbstractAlignmentMetric {
     public static void main(String[] args) throws IOException {
         AER aer = new AER();
         //test file,reference file
-        System.out.println(aer.computeScoreOfFile("/Users/wangqinglong/Library/Mobile Documents/com~apple~CloudDocs/WordAlign/data/infer.align", "/Users/wangqinglong/Library/Mobile Documents/com~apple~CloudDocs/WordAlign/data/test.qin.align"));
+        System.out.println(aer.computeScoreOfFile("/Users/wangqinglong/Library/Mobile Documents/com~apple~CloudDocs/WordAlign/data/infer.incre.align", "/Users/wangqinglong/Library/Mobile Documents/com~apple~CloudDocs/WordAlign/data/test.qin.align"));
     }
 }
 
